@@ -482,3 +482,6 @@ Foram utilizadas as sugestões compatíveis com os processos descritos na entrev
 Reflexão crítica
 
 A IA pode sugerir estruturas comuns a outros restaurantes que não necessariamente fazem parte da realidade do Alberic Gastrobar. Por esse motivo, a pesquisa de campo continua sendo a fonte principal para validar os processos e regras.
+
+<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/a7e627b9-ca7c-4fa5-beff-465971608744" />
+
