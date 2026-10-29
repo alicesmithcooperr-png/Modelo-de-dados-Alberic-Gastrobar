@@ -1,2 +1,221 @@
-Entrega 1 — Modelo Conceitual (DER)Modelagem de um sistema de gestão de informações — Alberic GastrobarProjeto acadêmico — Banco de DadosMetadadosInformaçãoRegistroOrganizaçãoAlberic GastrobarNaturezaEstabelecimento de alimentação e atendimento ao públicoPessoas envolvidas14, conforme informação obtida na pesquisa de campoEndereçoRua Dr. Raul da Rocha Medeiros, 306 — Tatuapé, São Paulo/SP, CEP 03071-100Telefone(11) 2362-7392Instagram@alberic_gastrobarData da pesquisa16/09/2026IntegrantesDaniel Baptista dos Santos; Eloise Abreu Rodrigues; Fernando Simoes de Menezes; Nathaly Pereira; Yasmin Jimenez NegrãoRGM — Daniel Baptista dos Santos48821756RGM — Eloise Abreu Rodrigues49482602RGM — Fernando Simoes de Menezes49617133RGM — Nathaly Pereira47287560RGM — Yasmin Jimenez Negrão49595407Pessoa entrevistada / funçãoNão informado no material disponibilizado; preencher após confirmação com o grupo.Volume médio de atendimentosNão informado na entrevista/material disponibilizado.1. Caracterização da organização1.1 Nome, natureza e porteO Alberic Gastrobar é um estabelecimento de alimentação e atendimento presencial, com comercialização de alimentos e bebidas. Segundo a pesquisa de campo, há 14 pessoas envolvidas na operação, distribuídas entre salão, cozinha, ajudantes, bar/barman, gerência e caixa.1.2 Rotina observadaO cliente chega ao estabelecimento, é recebido por um garçom e encaminhado a uma mesa. O cardápio é apresentado e o pedido é registrado por dispositivo móvel no sistema Gom Web, conforme informado na entrevista. Os pedidos são direcionados aos setores responsáveis. A comanda numerada é associada à mesa e o pagamento ocorre no caixa.O estoque é controlado atualmente por planilha, com baixa dos produtos utilizados ou retirados. Essa diferença entre o sistema de pedidos e o controle de estoque constitui uma oportunidade de integração.1.3 Necessidade e justificativaA necessidade identificada é facilitar e agilizar a rotina por meio de informações integradas sobre mesas, comandas, pedidos, produtos, setores, estoque e pagamentos. A equipe também relatou que ocorrências de atendimento são resolvidas de forma amigável e que, em alguns casos, pode ser oferecida uma cortesia.1.4 EvidênciasEndereço: Rua Dr. Raul da Rocha Medeiros, 306 — Tatuapé, São Paulo/SP.Telefone: (11) 2362-7392.Instagram: @alberic_gastrobarFoto da fachada: Link da ImagemFoto da pesquisa de campo: Link da ImagemA identificação da pessoa entrevistada, sua função e a confirmação de que aparece na foto devem ser preenchidas pelo grupo, pois essas informações não constam no material fornecido.2. Processos de negócioOs processos abaixo separam o que foi observado na pesquisa daquilo que é recomendado para completar o escopo do sistema. Os processos de compras, contas a pagar, fechamento de caixa, manutenção do cardápio e escala são propostas de modelagem e precisam ser confirmados com o estabelecimento antes de serem apresentados como práticas atuais.2.1 Recepção e acomodaçãoO garçom recebe o cliente, verifica a disponibilidade de mesa e o encaminha para acomodação. A mesa deve ser identificada no sistema como disponível ou ocupada. (Observado em campo.)2.2 Abertura e associação da comandaA comanda é aberta e associada à mesa para reunir o consumo daquele atendimento. Uma mesa pode ter comandas diferentes ao longo do tempo, mas cada comanda aberta deve identificar o atendimento correspondente. (Baseado na rotina informada.)2.3 Registro do pedidoO garçom registra os produtos e respectivas quantidades pelo dispositivo móvel/sistema Gom Web. O pedido deve ficar associado à comanda e conter ao menos um item antes de ser enviado. (Observado e regra proposta.)2.4 Encaminhamento e produção por setorApós o envio, os itens são direcionados ao setor responsável, como cozinha ou bar. O setor acompanha os pedidos recebidos e atualiza o andamento da preparação. O detalhamento dos estados do pedido deve ser validado com a equipe. (Encaminhamento observado; estados propostos.)2.5 Conferência e entrega à mesaComo processo recomendado, a equipe confere os itens preparados com o pedido e entrega na mesa correta, atualizando o status para entregue. O procedimento atual de conferência não foi detalhado na entrevista.2.6 Manutenção do cardápio e preçosProcesso proposto: usuário autorizado cadastra ou atualiza produtos, categorias, preços, disponibilidade e setor responsável. Alterações devem preservar o histórico de itens já vendidos.2.7 Tratamento de indisponibilidade e cancelamentosSe um produto estiver indisponível, a equipe comunica o cliente e, quando possível, oferece substituição. Cancelamentos de itens já enviados devem registrar motivo e responsável e, se necessário, avisar o setor de produção. A indisponibilidade foi mencionada; o fluxo de cancelamento é uma proposta.2.8 Fechamento da conta e pagamentoAo terminar o atendimento, o cliente solicita a conta e o caixa confere os itens e valores da comanda. O sistema registra um ou mais pagamentos, permite identificar eventual divisão da conta e só encerra a comanda quando o saldo estiver quitado. O pagamento no caixa foi observado; divisão de conta é proposta.2.9 Controle de estoqueO estoque é controlado por planilha e recebe baixas quando produtos são utilizados ou saem. No sistema proposto, entradas e saídas serão registradas com produto, quantidade, data, motivo e responsável, permitindo consultar saldo e histórico. (Controle atual observado; integração proposta.)2.10 Cadastro de fornecedoresProcesso proposto a validar: cadastrar fornecedor com razão/nome, CNPJ/CPF quando aplicável, contatos, endereço e situação cadastral, evitando duplicidade.2.11 Cotação e pedido de compraProcesso proposto a validar: registrar necessidade de reposição, consultar cotações, selecionar fornecedor conforme critérios aprovados e gerar pedido de compra com itens, quantidades, preços e previsão de entrega.2.12 Recebimento de mercadoriasProcesso proposto a validar: comparar mercadorias recebidas com o pedido e documento do fornecedor, registrar divergências, quantidades aceitas e validade/lote quando aplicável; somente após conferência lançar a entrada no estoque.2.13 Contas a pagarProcesso proposto a validar: registrar títulos de fornecedores, vencimentos, valores e situação de pagamento, relacionando-os à compra e ao documento fiscal correspondente.2.14 Fechamento diário de caixaProcesso proposto a validar: ao fim do expediente, comparar valores registrados no sistema com dinheiro, cartões e demais meios recebidos, registrar diferenças e submeter a conferência à gerência.2.15 Escala e gestão de funcionáriosProcesso proposto a validar: manter cadastro de funcionários, função, setor e situação; permitir que pessoa autorizada organize escalas e consulte os responsáveis por cada turno.2.16 Registro de ocorrências e cortesiasQuando há problema relacionado a uma mesa ou atendimento, a equipe procura resolver amigavelmente e pode oferecer cortesia. O sistema deve registrar descrição, comanda, responsável, decisão e eventual cortesia. A autorização e os limites precisam ser definidos pelo estabelecimento.3. Requisitos do sistema3.1 Requisitos funcionaisCódigoRequisito funcionalRF01Cadastrar e consultar mesas e sua situação.RF02Abrir, consultar e encerrar comandas associadas a mesas.RF03Registrar pedidos vinculados a uma comanda.RF04Adicionar um ou mais itens e suas quantidades a um pedido.RF05Impedir o envio de pedido sem itens ou com quantidade inválida.RF06Encaminhar os itens aos setores responsáveis.RF07Acompanhar o status do pedido, incluindo recebido, em preparo, pronto e entregue; validar os estados com a equipe.RF08Cadastrar produtos, categorias, preços e disponibilidade.RF09Relacionar cada produto ao setor de preparação responsável.RF10Registrar cancelamentos e seus motivos, com identificação do responsável.RF11Registrar entradas e saídas de estoque com data, quantidade e motivo.RF12Consultar o saldo e o histórico de movimentações de estoque.RF13Cadastrar fornecedores e seus dados de contato.RF14Registrar cotações e pedidos de compra.RF15Registrar recebimento de mercadorias e divergências em relação ao pedido.RF16Registrar contas a pagar, vencimentos e situação de quitação.RF17Cadastrar funcionários, funções e setores.RF18Registrar pagamentos vinculados à comanda e permitir múltiplos pagamentos.RF19Exibir saldo pendente e impedir encerramento da comanda antes da quitação, salvo regra autorizada formalmente.RF20Registrar fechamento diário de caixa e diferenças encontradas.RF21Registrar ocorrências, providências e cortesias.RF22Consultar relatórios gerenciais de vendas, pedidos, estoque, compras e pagamentos.3.2 Requisitos não funcionaisCódigoRequisito não funcionalRNF01A interface deve ser simples e adequada ao uso durante o atendimento.RNF02O registro e envio de pedidos deve ocorrer com rapidez compatível com a operação.RNF03O sistema deve exigir autenticação e controlar o acesso conforme a função do usuário.RNF04O banco deve preservar a integridade dos relacionamentos e dos valores financeiros.RNF05O sistema deve estar disponível durante o horário de funcionamento, conforme infraestrutura contratada.RNF06Alterações relevantes em pedidos, estoque, preços e pagamentos devem manter trilha de auditoria.RNF07A estrutura deve permitir crescimento da quantidade de produtos, pedidos e movimentações.RNF08Identificadores de mesas, comandas, pedidos e registros devem ser únicos.4. Regras de negócioCódigoRegra de negócioRN01Toda comanda aberta deve estar associada a uma mesa.RN02Uma mesa pode estar associada a várias comandas ao longo do tempo; a regra de comandas simultâneas deve ser confirmada com o estabelecimento.RN03Uma comanda pode conter vários pedidos.RN04Todo pedido pertence a uma única comanda.RN05Todo pedido enviado deve possuir pelo menos um item.RN06A quantidade de cada item deve ser maior que zero.RN07Todo item de pedido deve referenciar um produto cadastrado.RN08O preço de venda do produto deve estar definido antes de sua disponibilização; o preço praticado no pedido deve ser preservado como histórico.RN09Cada item deve ser encaminhado ao setor responsável pela preparação.RN10Produto indisponível deve ser comunicado ao cliente e, quando possível, substituído mediante concordância.RN11O cancelamento de item já enviado deve registrar motivo, data e responsável e comunicar o setor envolvido.RN12A comanda só deve ser encerrada quando não houver saldo pendente, exceto se houver procedimento formal de autorização de exceção.RN13O sistema deve registrar a forma, o valor, a data e a comanda de cada pagamento.RN14O sistema deve permitir pagamentos parciais e divisão da conta sem perder o vínculo com a comanda original.RN15A taxa de serviço de 10%, se adotada pelo estabelecimento, deve ser informada ao cliente e calculada de forma transparente; confirmar política, exceções e forma de cobrança com a gerência antes da implantação.RN16As formas de pagamento aceitas devem ser cadastradas/configuradas pelo responsável e informadas ao cliente. As formas efetivamente aceitas pelo Alberic não foram informadas no material.RN17Cortesia deve ser registrada com motivo, valor estimado, funcionário solicitante e responsável que autorizou; níveis de autorização e limites dependem de definição da gerência.RN18Toda movimentação de estoque deve ser classificada como entrada ou saída.RN19A quantidade movimentada deve ser maior que zero.RN20O saldo de estoque não pode ficar negativo; ajustes devem ser registrados e justificados.RN21Toda saída de estoque deve ter registro correspondente e motivo identificável.RN22No recebimento, a mercadoria deve ser conferida contra o pedido e o documento do fornecedor antes da entrada definitiva no estoque.RN23Compra, recebimento e conta a pagar devem manter referências que permitam rastrear fornecedor, itens, valores e documentos.RN24O acesso a funções administrativas deve ser limitado por perfil: garçom, produção, caixa e gerente. As permissões específicas devem ser aprovadas pela gerência.RN25A venda de bebidas alcoólicas a menores de 18 anos é proibida, conforme legislação brasileira; o procedimento de verificação de idade deve ser definido pela organização.RN26As vendas devem ser documentadas fiscalmente conforme o enquadramento tributário e as obrigações aplicáveis ao estabelecimento; o tipo de documento fiscal deve ser confirmado com a contabilidade.RN27Produtos alimentícios devem ser armazenados e manipulados conforme normas sanitárias aplicáveis, incluindo controle de validade, conservação e prevenção de contaminação.RN28Dados de clientes e funcionários, quando coletados, devem ser acessados apenas por pessoas autorizadas e tratados para finalidades legítimas.Observação: As regras RN15–RN28 são requisitos propostos para validação com a gerência e/ou contabilidade. Não se afirma que a taxa de 10%, as formas de pagamento ou os procedimentos internos já sejam adotados pelo Alberic Gastrobar.5. Dicionário de dados conceitualOs tipos abaixo são sugestões para uma futura implementação relacional. Os identificadores são chaves primárias (PK); os campos indicados como FK são chaves estrangeiras. Campos e regras operacionais propostos devem ser validados com o estabelecimento.EntidadeAtributos sugeridosFinalidadeMESAid_mesa (PK): inteiro;numero: inteiro único;capacidade: inteiro;status: texto;observacao: texto opcional.Identifica o local de atendimento.COMANDAid_comanda (PK): inteiro;id_mesa (FK): inteiro;aberta_em: data/hora;fechada_em: data/hora opcional;status: texto.Agrupa o consumo de uma mesa em um atendimento.PEDIDOid_pedido (PK): inteiro;id_comanda (FK): inteiro;id_funcionario (FK): inteiro;criado_em: data/hora;status: texto;observacao: texto opcional.Registro de pedido realizado em uma comanda.ITEM_PEDIDOid_item_pedido (PK): inteiro;id_pedido (FK): inteiro;id_produto (FK): inteiro;quantidade: decimal/inteiro positivo;preco_unitario: decimal monetário;status: texto.Detalha produto, quantidade e preço histórico em cada pedido.PRODUTOid_produto (PK): inteiro;id_categoria (FK): inteiro;id_setor (FK): inteiro;nome: texto;descricao: texto opcional;preco_venda: decimal monetário;disponivel: booleano.Produto vendido pelo estabelecimento.CATEGORIAid_categoria (PK): inteiro;nome: texto único;descricao: texto opcional;ativa: booleano.Classifica os produtos.SETORid_setor (PK): inteiro;nome: texto único;descricao: texto opcional;ativo: booleano.Representa setor como cozinha ou bar.FUNCIONARIOid_funcionario (PK): inteiro;nome: texto;funcao: texto;id_setor (FK): inteiro opcional;ativo: booleano;usuario_login: texto opcional.Identifica colaboradores e atribuições. Dados pessoais adicionais devem ser limitados ao necessário.ESTOQUEid_estoque (PK): inteiro;id_produto (FK, único): inteiro;quantidade_atual: decimal;unidade_medida: texto;estoque_minimo: decimal opcional.Mantém o saldo atual por produto.MOVIMENTACAO_ESTOQUEid_movimentacao (PK): inteiro;id_estoque (FK): inteiro;id_produto (FK): inteiro;tipo: texto (entrada/saída/ajuste);quantidade: decimal positiva;ocorrido_em: data/hora;motivo: texto;id_funcionario (FK): inteiro.Histórico de entradas, saídas e ajustes.PAGAMENTOid_pagamento (PK): inteiro;id_comanda (FK): inteiro;forma_pagamento: texto;valor: decimal monetário;pago_em: data/hora;status: texto;referencia_transacao: texto opcional.Registra pagamentos vinculados à comanda.OCORRENCIAid_ocorrencia (PK): inteiro;id_comanda (FK): inteiro opcional;id_funcionario (FK): inteiro;registrada_em: data/hora;descricao: texto;providencia: texto;cortesia_valor: decimal opcional;autorizado_por (FK funcionário): inteiro opcional.Registra problemas e providências adotadas.FORNECEDORid_fornecedor (PK): inteiro;nome_razao_social: texto;documento: texto opcional;telefone: texto;email: texto;endereco: texto;ativo: booleano.Entidade proposta para controlar fornecedores.COMPRAid_compra (PK): inteiro;id_fornecedor (FK): inteiro;id_funcionario (FK): inteiro;solicitada_em: data/hora;prevista_entrega: data opcional;status: texto;valor_total: decimal monetário.Entidade proposta para registrar pedidos de compra.ITEM_COMPRAid_item_compra (PK): inteiro;id_compra (FK): inteiro;id_produto (FK): inteiro;quantidade_pedida: decimal;quantidade_recebida: decimal;custo_unitario: decimal monetário.Detalha os produtos solicitados e recebidos em uma compra.CONTA_PAGARid_conta_pagar (PK): inteiro;id_compra (FK): inteiro opcional;id_fornecedor (FK): inteiro;documento_referencia: texto;vencimento: data;valor: decimal monetário;status: texto;pago_em: data opcional.Entidade proposta para compromissos financeiros com fornecedores.FECHAMENTO_CAIXAid_fechamento (PK): inteiro;id_funcionario (FK): inteiro;iniciado_em: data/hora;encerrado_em: data/hora;valor_sistema: decimal monetário;valor_conferido: decimal monetário;diferenca: decimal monetário;observacao: texto opcional.Entidade proposta para conferência diária do caixa.ESCALA_FUNCIONARIOid_escala (PK): inteiro;id_funcionario (FK): inteiro;inicio: data/hora;fim: data/hora;funcao_turno: texto;status: texto.Entidade proposta para planejamento de turnos.6. Modelagem conceitual — entidades e relacionamentosO modelo considera as 12 entidades originais e acrescenta FORNECEDOR, COMPRA, ITEM_COMPRA, CONTA_PAGAR, FECHAMENTO_CAIXA e ESCALA_FUNCIONARIO para representar os processos ausentes apontados na avaliação. As entidades adicionais são propostas e dependem de validação do escopo.RelacionamentoCardinalidade mínima e máximaJustificativaMESA — COMANDAMESA 1 : 0..N COMANDACOMANDA 1 : 1 MESAUma mesa pode ainda não ter comandas ou acumular várias ao longo do tempo; cada comanda pertence a uma mesa.COMANDA — PEDIDOCOMANDA 1 : 0..N PEDIDOPEDIDO 1 : 1 COMANDAUma comanda pode receber vários pedidos; pedido não existe sem comanda.PEDIDO — ITEM_PEDIDOPEDIDO 1 : 1..N ITEM_PEDIDOITEM_PEDIDO 1 : 1 PEDIDOPedido enviado precisa de ao menos um item; cada item pertence a um pedido.PRODUTO — ITEM_PEDIDOPRODUTO 1 : 0..N ITEM_PEDIDOITEM_PEDIDO 1 : 1 PRODUTOUm produto pode aparecer em muitos itens; cada item refere um produto.CATEGORIA — PRODUTOCATEGORIA 1 : 0..N PRODUTOPRODUTO 1 : 1 CATEGORIAUma categoria agrupa produtos; cada produto pertence a uma categoria.SETOR — PRODUTOSETOR 1 : 0..N PRODUTOPRODUTO 1 : 1 SETORUm setor prepara vários produtos; cada produto tem setor responsável principal.FUNCIONARIO — PEDIDOFUNCIONARIO 1 : 0..N PEDIDOPEDIDO 1 : 1 FUNCIONARIOFuncionário registra vários pedidos; cada pedido tem responsável pelo lançamento.PRODUTO — ESTOQUEPRODUTO 1 : 0..1 ESTOQUEESTOQUE 1 : 1 PRODUTOSaldo pode ser criado após cadastro; cada registro de estoque refere um produto. Se todo produto precisar de saldo, alterar para 1:1 obrigatório.ESTOQUE — MOVIMENTACAO_ESTOQUEESTOQUE 1 : 0..N MOVIMENTACAO_ESTOQUEMOVIMENTACAO_ESTOQUE 1 : 1 ESTOQUEUm saldo possui histórico de movimentações.COMANDA — PAGAMENTOCOMANDA 1 : 0..N PAGAMENTOPAGAMENTO 1 : 1 COMANDAUma comanda pode estar sem pagamento ou receber pagamentos parciais/múltiplos.COMANDA — OCORRENCIACOMANDA 1 : 0..N OCORRENCIAOCORRENCIA 0..1 : 1 COMANDAUma comanda pode ter várias ocorrências; uma ocorrência pode ser geral e não estar ligada a comanda, se permitido.FORNECEDOR — COMPRAFORNECEDOR 1 : 0..N COMPRACOMPRA 1 : 1 FORNECEDORUm fornecedor pode atender diversas compras.COMPRA — ITEM_COMPRACOMPRA 1 : 1..N ITEM_COMPRAITEM_COMPRA 1 : 1 COMPRACada compra contém um ou mais itens.PRODUTO — ITEM_COMPRAPRODUTO 1 : 0..N ITEM_COMPRAITEM_COMPRA 1 : 1 PRODUTOUm produto pode aparecer em várias compras.FORNECEDOR — CONTA_PAGARFORNECEDOR 1 : 0..N CONTA_PAGARCONTA_PAGAR 1 : 1 FORNECEDORCada obrigação a pagar é associada ao fornecedor.FUNCIONARIO — FECHAMENTO_CAIXAFUNCIONARIO 1 : 0..N FECHAMENTO_CAIXAFECHAMENTO_CAIXA 1 : 1 FUNCIONARIOFuncionário responsável realiza fechamentos.FUNCIONARIO — ESCALA_FUNCIONARIOFUNCIONARIO 1 : 0..N ESCALA_FUNCIONARIOESCALA_FUNCIONARIO 1 : 1 FUNCIONARIOCada registro de escala pertence a um funcionário.7. Justificativa técnica e alternativasCOMANDA × PEDIDO: Separar permite registrar vários pedidos durante um mesmo atendimento sem repetir dados da mesa e da comanda. Alternativa rejeitada: colocar todos os itens diretamente na comanda; isso dificulta distinguir pedidos enviados em momentos diferentes e acompanhar sua produção.PEDIDO × ITEM_PEDIDO × PRODUTO: ITEM_PEDIDO resolve a relação de muitos-para-muitos entre pedido e produto e armazena quantidade e preço no momento da venda. Alternativa rejeitada: guardar uma lista de produtos em um único campo, pois prejudica consultas, integridade e cálculos.PRODUTO × CATEGORIA e SETOR: Entidades separadas evitam repetir nomes de categorias e setores em cada produto e facilitam manutenção. O modelo assume uma categoria e um setor principal por produto; se um produto puder pertencer a várias categorias ou exigir vários setores, será necessária uma tabela associativa.ESTOQUE × MOVIMENTACAO_ESTOQUE: ESTOQUE mantém o saldo atual e MOVIMENTACAO_ESTOQUE preserva o histórico. Alternativa rejeitada: guardar somente a quantidade atual, pois não permitiria auditar como o saldo mudou.COMANDA × PAGAMENTO: Permite mais de um pagamento por comanda, inclusive pagamento parcial ou divisão da conta. Alternativa 1:1 foi descartada porque restringiria esses cenários.FORNECEDOR, COMPRA e ITEM_COMPRA: São necessários para rastrear o ciclo de compra, os itens solicitados e o fornecedor. Sem ITEM_COMPRA, uma compra com vários produtos exigiria repetir dados ou armazenar listas não estruturadas.COMPRA × CONTA_PAGAR: A obrigação financeira foi separada da compra para permitir vencimentos e pagamentos independentes; a ligação com compra é opcional quando houver conta não originada de uma compra registrada no sistema.Mínimos e máximos: A cardinalidade máxima descreve o limite de ocorrências; a mínima indica se a participação é obrigatória. Por exemplo, uma comanda deve ter uma mesa (mínimo 1), enquanto uma mesa recém-cadastrada pode não ter nenhuma comanda (mínimo 0). As cardinalidades devem ser revistas se a operação real divergir.8. Uso de inteligência artificial8.1 Ferramenta e etapaFerramenta utilizada: ChatGPT.Foi usada como apoio à organização textual, levantamento de processos, elaboração de requisitos e regras, proposta de entidades e revisão da documentação.8.2 Prompt utilizado“Com base na entrevista realizada com o Alberic Gastrobar, organize as informações da pesquisa de campo e ajude a identificar processos, requisitos funcionais e não funcionais, regras de negócio, entidades, atributos, relacionamentos e cardinalidades para uma entrega de modelagem conceitual de banco de dados.”8.3 Síntese da respostaA ferramenta sugeriu organizar os processos de atendimento, pedidos, comandas, produção, estoque, pagamentos e ocorrências e propôs uma estrutura inicial de entidades e relacionamentos. Na revisão, o grupo ampliou o escopo conceitual para incluir compras, fornecedores, contas a pagar, fechamento de caixa e escala, identificando esses elementos como propostas a confirmar.8.4 Trechos rejeitados ou corrigidosA frase “Informações que não foram informadas na entrevista, como endereço, telefone, site e nomes/RGM dos alunos, não foram inventadas” foi removida, pois contradizia a presença desses dados no próprio documento.A frase “O modelo final deverá ser validado pelo grupo antes da entrega” foi substituída por uma descrição do que precisa ser conferido, para não deixar a entrega com aparência de rascunho.A lista repetida da Seção 5 foi eliminada e a numeração foi reorganizada.A afirmação de que o dicionário e o DER estavam disponíveis em arquivos externos foi substituída por conteúdo incorporado ao documento e por um diagrama anexo.Regras sobre taxa de serviço, formas de pagamento, compra, fornecedores e controles legais foram identificadas como propostas, pois não há evidência de que tenham sido confirmadas na entrevista.8.5 Critério de escolha final e reflexão críticaForam mantidas as informações compatíveis com o material da pesquisa e propostas de modelagem que respondem às lacunas apontadas na avaliação. A IA não substitui a entrevista nem confirma procedimentos internos. Antes da entrega, o grupo deve validar com a organização as rotinas de compras, formas de pagamento, política de taxa de serviço, autorização de cortesias, controles de caixa, escala e dados da pessoa entrevistada. O grupo é responsável pela versão final.9. Pendências para validação do grupo[ ] Confirmar nome e função da pessoa entrevistada e informar se ela aparece na foto da visita.[ ] Confirmar volume médio de atendimentos, caso o estabelecimento forneça esse dado.[ ] Confirmar formas de pagamento, política de taxa de serviço e possibilidade de dividir a conta.[ ] Confirmar se existem processos formais de compras, contas a pagar, fechamento de caixa e escala.[ ] Validar permissões por função, política de cortesia e procedimento de cancelamento.[ ] Confirmar com a gerência/contabilidade o enquadramento fiscal e procedimentos aplicáveis.[ ] Revisar o DER e os atributos com o professor antes de implementar o banco.
+# Entrega 1 — Modelo Lógico de Banco de Dados (MBD / Relacional)
 
+## Sistema de Gestão de Informações — Alberic Gastrobar
+
+### Projeto Acadêmico — Banco de Dados
+
+---
+
+## 1. Contextualização e Mapeamento
+O Modelo Lógico de Banco de Dados (MBD) traduz o Modelo Entidade-Relacionamento (DER) para o paradigma Relacional. As entidades conceituais foram mapeadas em **tabelas relacionais**, com suas respectivas **Chaves Primárias (PK)**, **Chaves Estrangeiras (FK)**, tipos de dados, regras de preenchimento (`NOT NULL`, `UNIQUE`) e restrições de integridade.
+
+---
+
+## 2. Esquema das Tabelas (Estrutura Relacional)
+
+### 2.1 Módulo: Salão e Atendimento
+
+#### `MESA`
+Armazena a identificação das mesas físicas do estabelecimento.
+* **`id_mesa`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador único da mesa.
+* **`numero`** `INT` `NOT NULL` `UNIQUE`: Número físico visível da mesa.
+* **`capacidade`** `INT` `NOT NULL`: Quantidade máxima de assentos.
+* **`status`** `VARCHAR(20)` `NOT NULL` `DEFAULT 'LIVRE'`: Situação atual (`LIVRE`, `OCUPADA`, `RESERVADA`, `MANUTENÇÃO`).
+* **`observacao`** `VARCHAR(255)` `NULL`: Observações adicionais (ex.: "próximo à janela").
+
+#### `COMANDA`
+Registra o ciclo de atendimento/consumo associado a uma mesa.
+* **`id_comanda`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador único da comanda.
+* **`id_mesa`** `INT` `NOT NULL` **[FK -> MESA.id_mesa]**: Mesa vinculada.
+* **`aberta_em`** `DATETIME` `NOT NULL` `DEFAULT CURRENT_TIMESTAMP`: Data/hora de abertura.
+* **`fechada_em`** `DATETIME` `NULL`: Data/hora do encerramento.
+* **`status`** `VARCHAR(20)` `NOT NULL` `DEFAULT 'ABERTA'`: Situação da comanda (`ABERTA`, `AGUARDANDO_PAGAMENTO`, `FECHADA`, `CANCELADA`).
+
+#### `PEDIDO`
+Agrupa os itens solicitados pelo cliente em um determinado momento da permanência.
+* **`id_pedido`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador único do pedido.
+* **`id_comanda`** `INT` `NOT NULL` **[FK -> COMANDA.id_comanda]**: Comanda do pedido.
+* **`id_funcionario`** `INT` `NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**: Garçom/atendente que registrou.
+* **`criado_em`** `DATETIME` `NOT NULL` `DEFAULT CURRENT_TIMESTAMP`: Data/hora do envio.
+* **`status`** `VARCHAR(20)` `NOT NULL` `DEFAULT 'ENVIADO'`: Estado global (`ENVIADO`, `EM_PREPARO`, `PRONTO`, `ENTREGUE`, `CANCELADO`).
+* **`observacao`** `VARCHAR(255)` `NULL`: Observações gerais do pedido.
+
+#### `ITEM_PEDIDO`
+Tabela associativa que detalha cada produto inserido em um pedido.
+* **`id_item_pedido`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador único do item do pedido.
+* **`id_pedido`** `INT` `NOT NULL` **[FK -> PEDIDO.id_pedido]**: Pedido de origem.
+* **`id_produto`** `INT` `NOT NULL` **[FK -> PRODUTO.id_produto]**: Produto solicitado.
+* **`quantidade`** `DECIMAL(10,3)` `NOT NULL`: Quantidade do item (suporta fracionado se necessário).
+* **`preco_unitario`** `DECIMAL(10,2)` `NOT NULL`: Preço praticado no momento do pedido (preserva histórico).
+* **`status`** `VARCHAR(20)` `NOT NULL` `DEFAULT 'PENDENTE'`: Estado no setor (`PENDENTE`, `EM_PREPARO`, `PRONTO`, `ENTREGUE`, `CANCELADO`).
+* **`observacao_item`** `VARCHAR(150)` `NULL`: Especificações (ex.: "sem cebola", "ponto do cliente").
+
+---
+
+### 2.2 Módulo: Cardápio e Estrutura Operacional
+
+#### `CATEGORIA`
+Classifica os produtos do cardápio.
+* **`id_categoria`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador da categoria.
+* **`nome`** `VARCHAR(50)` `NOT NULL` `UNIQUE`: Nome da categoria (ex.: Porções, Bebidas, Sobremesas).
+* **`descricao`** `VARCHAR(255)` `NULL`: Descrição da categoria.
+* **`ativa`** `BOOLEAN` `NOT NULL` `DEFAULT TRUE`: Indicador de atividade no cardápio.
+
+#### `SETOR`
+Representa os setores físicos preparadores/operacionais.
+* **`id_setor`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador do setor.
+* **`nome`** `VARCHAR(50)` `NOT NULL` `UNIQUE`: Nome do setor (ex.: Cozinha, Bar, Salão, Caixa).
+* **`descricao`** `VARCHAR(255)` `NULL`: Descrição sumária das responsabilidades.
+* **`ativo`** `BOOLEAN` `NOT NULL` `DEFAULT TRUE`: Situação cadastral.
+
+#### `PRODUTO`
+Cadastro dos itens comercializados.
+* **`id_produto`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador único do produto.
+* **`id_categoria`** `INT` `NOT NULL` **[FK -> CATEGORIA.id_categoria]**: Categoria vinculada.
+* **`id_setor`** `INT` `NOT NULL` **[FK -> SETOR.id_setor]**: Setor responsável pela produção/preparo.
+* **`nome`** `VARCHAR(100)` `NOT NULL`: Nome comercial do item.
+* **`descricao`** `TEXT` `NULL`: Detalhamento dos ingredientes/características.
+* **`preco_venda`** `DECIMAL(10,2)` `NOT NULL`: Valor monetário padrão de venda.
+* **`disponivel`** `BOOLEAN` `NOT NULL` `DEFAULT TRUE`: Flag de oferta ativa no sistema.
+
+---
+
+### 2.3 Módulo: Pessoal e Escala
+
+#### `FUNCIONARIO`
+Registra colaboradores do estabelecimento e credenciais de acesso.
+* **`id_funcionario`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador único do funcionário.
+* **`id_setor`** `INT` `NULL` **[FK -> SETOR.id_setor]**: Setor principal de atuação.
+* **`nome`** `VARCHAR(100)` `NOT NULL`: Nome completo.
+* **`funcao`** `VARCHAR(50)` `NOT NULL`: Cargo/Função (ex.: Garçom, Barman, Cozinheiro, Gerente, Caixa).
+* **`usuario_login`** `VARCHAR(50)` `NULL` `UNIQUE`: Usuário para autenticação no sistema.
+* **`senha_hash`** `VARCHAR(255)` `NULL`: Hash de segurança da senha.
+* **`ativo`** `BOOLEAN` `NOT NULL` `DEFAULT TRUE`: Situação do contrato no sistema.
+
+#### `ESCALA_FUNCIONARIO`
+Organiza e aloca os turnos de trabalho da equipe.
+* **`id_escala`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador da escala.
+* **`id_funcionario`** `INT` `NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**: Colaborador alocado.
+* **`inicio`** `DATETIME` `NOT NULL`: Data e hora de início do turno.
+* **`fim`** `DATETIME` `NOT NULL`: Data e hora de término do turno.
+* **`funcao_turno`** `VARCHAR(50)` `NOT NULL`: Função exercida especificamente no turno.
+* **`status`** `VARCHAR(20)` `NOT NULL` `DEFAULT 'PREVISTO'`: Situação (`PREVISTO`, `CONFIRMADO`, `REALIZADO`, `FALTA`).
+
+---
+
+### 2.4 Módulo: Estoque e Compras
+
+#### `ESTOQUE`
+Armazena a posição atualizada do saldo em estoque de cada produto.
+* **`id_estoque`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador do registro de estoque.
+* **`id_produto`** `INT` `NOT NULL` `UNIQUE` **[FK -> PRODUTO.id_produto]**: Produto associado (relação 1:1 com Produto).
+* **`quantidade_atual`** `DECIMAL(10,3)` `NOT NULL` `DEFAULT 0.000`: Saldo físico disponível.
+* **`unidade_medida`** `VARCHAR(15)` `NOT NULL`: Unidade (ex.: `UN`, `KG`, `L`, `GARRAFA`).
+* **`estoque_minimo`** `DECIMAL(10,3)` `NULL`: Ponto de pedido para reposição.
+
+#### `MOVIMENTACAO_ESTOQUE`
+Histórico de rastreabilidade de entradas, saídas e ajustes de inventário.
+* **`id_movimentacao`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador único do lançamento.
+* **`id_estoque`** `INT` `NOT NULL` **[FK -> ESTOQUE.id_estoque]**: Item de estoque movimentado.
+* **`id_produto`** `INT` `NOT NULL` **[FK -> PRODUTO.id_produto]**: Produto correspondente.
+* **`id_funcionario`** `INT` `NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**: Responsável pelo registro.
+* **`tipo`** `VARCHAR(10)` `NOT NULL`: Tipo de movimentação (`ENTRADA`, `SAIDA`, `AJUSTE`).
+* **`quantidade`** `DECIMAL(10,3)` `NOT NULL`: Volume movimentado (sempre positivo).
+* **`ocorrido_em`** `DATETIME` `NOT NULL` `DEFAULT CURRENT_TIMESTAMP`: Data/hora do evento.
+* **`motivo`** `VARCHAR(255)` `NOT NULL`: Justificativa (ex.: "Venda pedido #12", "Perda/Avaria", "Compra NF 123").
+
+#### `FORNECEDOR`
+Cadastro de parceiros comerciais e fornecedores de mercadorias.
+* **`id_fornecedor`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador do fornecedor.
+* **`nome_razao_social`** `VARCHAR(120)` `NOT NULL`: Razão social ou nome fantasia.
+* **`documento`** `VARCHAR(20)` `NULL` `UNIQUE`: CNPJ ou CPF.
+* **`telefone`** `VARCHAR(20)` `NOT NULL`: Contato telefônico principal.
+* **`email`** `VARCHAR(100)` `NULL`: E-mail de contato comercial.
+* **`endereco`** `VARCHAR(255)` `NULL`: Endereço completo.
+* **`ativo`** `BOOLEAN` `NOT NULL` `DEFAULT TRUE`: Status cadastral.
+
+#### `COMPRA`
+Registro de cabeçalho dos pedidos de compra de insumos/produtos.
+* **`id_compra`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador da compra.
+* **`id_fornecedor`** `INT` `NOT NULL` **[FK -> FORNECEDOR.id_fornecedor]**: Fornecedor contratado.
+* **`id_funcionario`** `INT` `NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**: Comprador/solicitante.
+* **`solicitada_em`** `DATETIME` `NOT NULL` `DEFAULT CURRENT_TIMESTAMP`: Data do pedido.
+* **`prevista_entrega`** `DATE` `NULL`: Previsão de entrega do fornecedor.
+* **`status`** `VARCHAR(20)` `NOT NULL` `DEFAULT 'SOLICITADA'`: Estado (`SOLICITADA`, `APROVADA`, `RECEBIDA`, `CANCELADA`).
+* **`valor_total`** `DECIMAL(10,2)` `NOT NULL` `DEFAULT 0.00`: Soma total do pedido de compra.
+
+#### `ITEM_COMPRA`
+Detalhamento dos produtos solicitados em uma ordem de compra.
+* **`id_item_compra`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador do item da compra.
+* **`id_compra`** `INT` `NOT NULL` **[FK -> COMPRA.id_compra]**: Ordem de compra pai.
+* **`id_produto`** `INT` `NOT NULL` **[FK -> PRODUTO.id_produto]**: Produto a ser reposto.
+* **`quantidade_pedida`** `DECIMAL(10,3)` `NOT NULL`: Quantidade encomendada.
+* **`quantidade_recebida`** `DECIMAL(10,3)` `NOT NULL` `DEFAULT 0.000`: Quantidade entregue/conferida.
+* **`custo_unitario`** `DECIMAL(10,2)` `NOT NULL`: Preço unitário pago ao fornecedor.
+
+---
+
+### 2.5 Módulo: Financeiro, Caixa e Ocorrências
+
+#### `PAGAMENTO`
+Registra liquidações financeiras associadas às comandas.
+* **`id_pagamento`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador do pagamento.
+* **`id_comanda`** `INT` `NOT NULL` **[FK -> COMANDA.id_comanda]**: Comanda quitada (total ou parcialmente).
+* **`forma_pagamento`** `VARCHAR(30)` `NOT NULL`: Meio utilizado (`DINHEIRO`, `CARTAO_CREDITO`, `CARTAO_DEBITO`, `PIX`).
+* **`valor`** `DECIMAL(10,2)` `NOT NULL`: Valor pago nesta transação.
+* **`pago_em`** `DATETIME` `NOT NULL` `DEFAULT CURRENT_TIMESTAMP`: Data/hora do recebimento.
+* **`status`** `VARCHAR(20)` `NOT NULL` `DEFAULT 'CONCLUIDO'`: Situação (`CONCLUIDO`, `ESTORNADO`).
+* **`referencia_transacao`** `VARCHAR(100)` `NULL`: Código autorização maquininha/NSU/Pix.
+
+#### `CONTA_PAGAR`
+Gestão de compromissos financeiros e obrigações com fornecedores.
+* **`id_conta_pagar`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador da obrigação financeira.
+* **`id_fornecedor`** `INT` `NOT NULL` **[FK -> FORNECEDOR.id_fornecedor]**: Credor da obrigação.
+* **`id_compra`** `INT` `NULL` **[FK -> COMPRA.id_compra]**: Compra de origem (opcional para contas diversas).
+* **`documento_referencia`** `VARCHAR(50)` `NULL`: Número da NF ou boleto.
+* **`vencimento`** `DATE` `NOT NULL`: Data limite para pagamento.
+* **`valor`** `DECIMAL(10,2)` `NOT NULL`: Valor nominal da fatura.
+* **`status`** `VARCHAR(20)` `NOT NULL` `DEFAULT 'PENDENTE'`: Estado (`PENDENTE`, `PAGO`, `ATRASADO`, `CANCELADO`).
+* **`pago_em`** `DATE` `NULL`: Data em que foi efetuada a quitação.
+
+#### `FECHAMENTO_CAIXA`
+Conferência de turno e fechamento diário do caixa físico.
+* **`id_fechamento`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador do fechamento.
+* **`id_funcionario`** `INT` `NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**: Operador de caixa responsável.
+* **`iniciado_em`** `DATETIME` `NOT NULL`: Data/hora de abertura do turno no caixa.
+* **`encerrado_em`** `DATETIME` `NOT NULL`: Data/hora de fechamento do turno.
+* **`valor_sistema`** `DECIMAL(10,2)` `NOT NULL`: Valor computado pelas vendas registradas.
+* **`valor_conferido`** `DECIMAL(10,2)` `NOT NULL`: Valor contado fisicamente/relatórios.
+* **`diferenca`** `DECIMAL(10,2)` `NOT NULL` `DEFAULT 0.00`: Apuração de sobra ou falta (`valor_conferido - valor_sistema`).
+* **`observacao`** `TEXT` `NULL`: Justificativa de divergências encontradas.
+
+#### `OCORRENCIA`
+Registra incidentes operacionais, reclamações e concessão de cortesia.
+* **`id_ocorrencia`** `INT` `AUTO_INCREMENT` **[PK]**: Identificador da ocorrência.
+* **`id_comanda`** `INT` `NULL` **[FK -> COMANDA.id_comanda]**: Comanda envolvida (se aplicável).
+* **`id_funcionario`** `INT` `NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**: Funcionário lançador.
+* **`autorizado_por`** `INT` `NULL` **[FK -> FUNCIONARIO.id_funcionario]**: Gerente autorizador (se houver cortesia).
+* **`registrada_em`** `DATETIME` `NOT NULL` `DEFAULT CURRENT_TIMESTAMP`: Data/hora do evento.
+* **`descricao`** `TEXT` `NOT NULL`: Relato do problema/ocorrência.
+* **`providencia`** `TEXT` `NOT NULL`: Ação tomada pela equipe.
+* **`cortesia_valor`** `DECIMAL(10,2)` `NULL` `DEFAULT 0.00`: Valor financeiro concedido em desconto/cortesia.
+
+---
+
+## 3. Resumo dos Relacionamentos e Integridade Referencial
+
+| Tabela Origem (FK) | Tabela Destino (PK) | Relacionamento | Regra de Negócio / Integridade |
+| :--- | :--- | :---: | :--- |
+| `COMANDA.id_mesa` | `MESA.id_mesa` | N : 1 | Toda comanda é aberta para uma mesa. |
+| `PEDIDO.id_comanda` | `COMANDA.id_comanda` | N : 1 | Vários pedidos pertencem a uma mesma comanda. |
+| `PEDIDO.id_funcionario` | `FUNCIONARIO.id_funcionario` | N : 1 | Identifica o atendente criador do pedido. |
+| `ITEM_PEDIDO.id_pedido` | `PEDIDO.id_pedido` | N : 1 | Detalha os produtos contidos em um pedido. |
+| `ITEM_PEDIDO.id_produto` | `PRODUTO.id_produto` | N : 1 | Vincula o item vendido ao produto do cardápio. |
+| `PRODUTO.id_categoria` | `CATEGORIA.id_categoria` | N : 1 | Classifica o produto em uma categoria. |
+| `PRODUTO.id_setor` | `SETOR.id_setor` | N : 1 | Define o setor responsável por preparar o produto. |
+| `ESTOQUE.id_produto` | `PRODUTO.id_produto` | 1 : 1 (UNIQUE) | Cada produto possui exatamente um saldo em estoque. |
+| `MOVIMENTACAO_ESTOQUE.id_estoque`| `ESTOQUE.id_estoque` | N : 1 | Registra as alterações no saldo de um estoque. |
+| `PAGAMENTO.id_comanda` | `COMANDA.id_comanda` | N : 1 | Permite múltiplos pagamentos para quitar uma comanda. |
+| `COMPRA.id_fornecedor` | `FORNECEDOR.id_fornecedor` | N : 1 | Identifica o fornecedor da ordem de compra. |
+| `ITEM_COMPRA.id_compra` | `COMPRA.id_compra` | N : 1 | Detalha os produtos de um pedido de compra. |
+| `CONTA_PAGAR.id_fornecedor` | `FORNECEDOR.id_fornecedor` | N : 1 | Define a quem o título financeiro deve ser pago. |
