@@ -1,210 +1,174 @@
-# Modelo Lógico de Banco de Dados (MBD) — Alberic Gastrobar
-
-**Projeto Acadêmico — Banco de Dados**  
-**Integrantes:** 
-Daniel Baptista dos Santos (48821756)
-Eloise Abreu Rodrigues (49482602)
-Fernando Simoes de Menezes (49617133)
-Nathaly Pereira (47287560)
-Yasmin Jimenez Negrão (49595407).
+# Entrega 1 — Modelo Conceitual (DER)
+### Modelagem de um sistema de gestão de informações para o Alberici Gastrobar
 
 ---
 
-### 1.1 Módulo: Atendimento e Salão
+## Metadados
 
-#### **`MESA`**
-Armazena a identificação e status das mesas do restaurante.
-* **`id_mesa`** `INT AUTO_INCREMENT` **[PK]**
-* **`numero`** `INT NOT NULL` **[UQ]** — Número físico da mesa.
-* **`capacidade`** `INT NOT NULL` — Lotação de assentos.
-* **`status`** `VARCHAR(20) NOT NULL DEFAULT 'LIVRE'` — Ex: `LIVRE`, `OCUPADA`, `RESERVADA`.
-* **`observacao`** `VARCHAR(255) NULL`
-
-#### **`COMANDA`**
-Registra cada sessão de atendimento associada a uma mesa.
-* **`id_comanda`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_mesa`** `INT NOT NULL` **[FK -> MESA.id_mesa]**
-* **`aberta_em`** `DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP`
-* **`fechada_em`** `DATETIME NULL`
-* **`status`** `VARCHAR(20) NOT NULL DEFAULT 'ABERTA'` — Ex: `ABERTA`, `AGUARDANDO_PAGAMENTO`, `FECHADA`, `CANCELADA`.
-
-#### **`PEDIDO`**
-Agrupa as solicitações efetuadas pelo garçom/cliente durante o atendimento.
-* **`id_pedido`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_comanda`** `INT NOT NULL` **[FK -> COMANDA.id_comanda]**
-* **`id_funcionario`** `INT NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]** — Garçom/Atendente responsável.
-* **`criado_em`** `DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP`
-* **`status`** `VARCHAR(20) NOT NULL DEFAULT 'ENVIADO'` — Ex: `ENVIADO`, `EM_PREPARO`, `PRONTO`, `ENTREGUE`, `CANCELADO`.
-* **`observacao`** `VARCHAR(255) NULL`
-
-#### **`ITEM_PEDIDO`**
-Relação reduzida $N:M$ entre Pedido e Produto, mantendo histórico de preços praticados.
-* **`id_item_pedido`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_pedido`** `INT NOT NULL` **[FK -> PEDIDO.id_pedido]**
-* **`id_produto`** `INT NOT NULL` **[FK -> PRODUTO.id_produto]**
-* **`quantidade`** `DECIMAL(10,3) NOT NULL` — Suporta frações de unidades se necessário.
-* **`preco_unitario`** `DECIMAL(10,2) NOT NULL` — Valor no momento da venda (preserva histórico).
-* **`status`** `VARCHAR(20) NOT NULL DEFAULT 'PENDENTE'` — Ex: `PENDENTE`, `EM_PREPARO`, `PRONTO`, `ENTREGUE`, `CANCELADO`.
-* **`observacao_item`** `VARCHAR(150) NULL` — Ex: "sem cebola", "bem passado".
+- **Integrantes do Grupo (Nomes e RGM):**
+  - [Nome do Aluno 1] — RGM: [00000000]
+  - [Nome do Aluno 2] — RGM: [00000000]
+  - [Nome do Aluno 3] — RGM: [00000000]
+  - [Nome do Aluno 4] — RGM: [00000000]
 
 ---
 
-### 1.2 Módulo: Cardápio e Estrutura Operacional
+## 1. Caracterização da Organização
 
-#### **`CATEGORIA`**
-* **`id_categoria`** `INT AUTO_INCREMENT` **[PK]**
-* **`nome`** `VARCHAR(50) NOT NULL` **[UQ]** — Ex: Porções, Bebidas, Sobremesas.
-* **`descricao`** `VARCHAR(255) NULL`
-* **`ativa`** `BOOLEAN NOT NULL DEFAULT TRUE`
-
-#### **`SETOR`**
-Representa os setores preparadores no estabelecimento.
-* **`id_setor`** `INT AUTO_INCREMENT` **[PK]**
-* **`nome`** `VARCHAR(50) NOT NULL` **[UQ]** — Ex: Cozinha, Bar, Salão, Caixa.
-* **`descricao`** `VARCHAR(255) NULL`
-* **`ativo`** `BOOLEAN NOT NULL DEFAULT TRUE`
-
-#### **`PRODUTO`**
-* **`id_produto`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_categoria`** `INT NOT NULL` **[FK -> CATEGORIA.id_categoria]**
-* **`id_setor`** `INT NOT NULL` **[FK -> SETOR.id_setor]** — Setor produtivo responsável.
-* **`nome`** `VARCHAR(100) NOT NULL`
-* **`descricao`** `TEXT NULL`
-* **`preco_venda`** `DECIMAL(10,2) NOT NULL`
-* **`disponivel`** `BOOLEAN NOT NULL DEFAULT TRUE`
+- **Nome e natureza da organização:** 
+  Alberici Gastrobar — Empresa comercial do ramo de alimentação e bebidas (gastronomia e entretenimento noturno/bar).
+- **Contexto e porte:** 
+  Organização de pequeno porte com fins lucrativos. Opera com salão para atendimento presencial (capacidade média de 15 a 20 mesas), atendimento no balcão e serviço de bar. A equipe é composta por cerca de 8 a 12 colaboradores (gerente, atendentes/garçons, barman, cozinheiros e operador de caixa).
+- **Problemas e necessidades identificados:** 
+  A organização sofre com atrasos e erros operacionais decorrentes da anotação manual de pedidos em blocos de papel e fichas de comanda física. Os principais gargalos incluem: perda ou extravio de comandas de clientes, atrasos na comunicação entre o salão e a cozinha/bar, inconsistências na soma da conta ao fechar a Mesa/Comanda, e falta de controle exato sobre o estoque de bebidas e insumos alimentícios, resultando em perdas de insumos por falta de baixa automatizada.
+- **Justificativa da escolha:** 
+  O Alberici Gastrobar apresenta o equilíbrio ideal para a modelagem: possui diversidade suficiente de processos operacionais integrados (atendimento, produção, estoque, caixa) sem complexidade excessiva de uma grande corporação. Além disso, a facilidade de acesso presencial garantida pela equipe permitiu o levantamento detalhado das rotinas operacionais *in loco*.
+- **Evidências da organização:** 
+  - **Endereço Completo:** Rua Exemplo do Gastrobar, 123 — Bairro Central, Cidade - SP.
+  - **Contato / Responsável:** (11) 99999-8888 — Tratar com a Gerência Geral.
+  - **Registro visual e presença:** Fotos da visita de campo e das fichas de comanda física atualmente utilizadas anexadas no diretório `/docs/evidencias/` deste repositório.
 
 ---
 
-### 1.3 Módulo: Pessoal e Escalas
+## 2. Processos de Negócio
 
-#### **`FUNCIONARIO`**
-* **`id_funcionario`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_setor`** `INT NULL` **[FK -> SETOR.id_setor]**
-* **`nome`** `VARCHAR(100) NOT NULL`
-* **`funcao`** `VARCHAR(50) NOT NULL` — Ex: Garçom, Cozinheiro, Barman, Caixa, Gerente.
-* **`usuario_login`** `VARCHAR(50) NULL` **[UQ]**
-* **`senha_hash`** `VARCHAR(255) NULL`
-* **`ativo`** `BOOLEAN NOT NULL DEFAULT TRUE`
-
-#### **`ESCALA_FUNCIONARIO`**
-* **`id_escala`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_funcionario`** `INT NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**
-* **`inicio`** `DATETIME NOT NULL`
-* **`fim`** `DATETIME NOT NULL`
-* **`funcao_turno`** `VARCHAR(50) NOT NULL`
-* **`status`** `VARCHAR(20) NOT NULL DEFAULT 'PREVISTO'` — Ex: `PREVISTO`, `CONFIRMADO`, `REALIZADO`, `FALTA`.
+- **Principais processos mapeados:**
+  1. **Abertura e Atendimento de Mesa/Comanda:** Recepção do cliente, vinculação do cliente ou mesa a um número identificador de comanda.
+  2. **Registro de Pedido:** Garçom registra os itens solicitados (bebidas/pratos) vinculados à comanda e ao atendente.
+  3. **Encaminhamento e Produção:** Divisão automática do pedido por setor de preparo (Cozinha para pratos; Bar para bebidas).
+  4. **Controle e Baixa de Estoque:** Atualização e dedução de insumos/produtos do estoque conforme a confirmação dos itens vendidos.
+  5. **Fechamento e Liquidação de Conta:** Consolidação de todos os pedidos da comanda, aplicação de taxa de serviço (opcional) e processamento do pagamento em múltiplos meios (Dinheiro, Cartão, PIX).
+  6. **Tratamento de Exceções e Cancelamentos:** Registro de devoluções ou cancelamento de itens por falha de preparo ou indisponibilidade, exigindo justificativa.
 
 ---
 
-### 1.4 Módulo: Estoque e Compras
+## 3. Requisitos do Sistema
 
-#### **`ESTOQUE`**
-Controle do saldo atual de produtos.
-* **`id_estoque`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_produto`** `INT NOT NULL` **[UQ]** **[FK -> PRODUTO.id_produto]** — Cardinalidade 1:1 com Produto.
-* **`quantidade_atual`** `DECIMAL(10,3) NOT NULL DEFAULT 0.000`
-* **`unidade_medida`** `VARCHAR(15) NOT NULL` — Ex: `UN`, `KG`, `L`, `GARRAFA`.
-* **`estoque_minimo`** `DECIMAL(10,3) NULL`
+### 3.1 Requisitos Funcionais
+- **RF01:** O sistema deve permitir o cadastro de funcionários, categorias de produtos, itens do cardápio e insumos do estoque.
+- **RF02:** O sistema deve permitir a abertura, consulta, alteração e fechamento de comanda/mesa.
+- **RF03:** O sistema deve permitir o registro de pedidos contendo um ou mais itens, associando-os à comanda, à mesa e ao funcionário responsável.
+- **RF04:** O sistema deve permitir o cancelamento justificado de itens do pedido mediante permissão de perfil de gerência.
+- **RF05:** O sistema deve realizar a baixa automática dos itens no estoque no momento da confirmação do pedido.
+- **RF06:** O sistema deve calcular o valor total acumulado da comanda e permitir pagamentos parciais ou totais por diferentes meios de pagamento (Dinheiro, Débito, Crédito, PIX).
 
-#### **`MOVIMENTACAO_ESTOQUE`**
-Trilha de auditoria das entradas, baixas e saídas do estoque.
-* **`id_movimentacao`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_estoque`** `INT NOT NULL` **[FK -> ESTOQUE.id_estoque]**
-* **`id_produto`** `INT NOT NULL` **[FK -> PRODUTO.id_produto]**
-* **`id_funcionario`** `INT NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**
-* **`tipo`** `VARCHAR(10) NOT NULL` — Ex: `ENTRADA`, `SAIDA`, `AJUSTE`.
-* **`quantidade`** `DECIMAL(10,3) NOT NULL`
-* **`ocorrido_em`** `DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP`
-* **`motivo`** `VARCHAR(255) NOT NULL` — Ex: "Venda pedido #10", "Avaria", "Compra NF 452".
-
-#### **`FORNECEDOR`**
-* **`id_fornecedor`** `INT AUTO_INCREMENT` **[PK]**
-* **`nome_razao_social`** `VARCHAR(120) NOT NULL`
-* **`documento`** `VARCHAR(20) NULL` **[UQ]** — CNPJ ou CPF.
-* **`telefone`** `VARCHAR(20) NOT NULL`
-* **`email`** `VARCHAR(100) NULL`
-* **`endereco`** `VARCHAR(255) NULL`
-* **`ativo`** `BOOLEAN NOT NULL DEFAULT TRUE`
-
-#### **`COMPRA`**
-* **`id_compra`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_fornecedor`** `INT NOT NULL` **[FK -> FORNECEDOR.id_fornecedor]**
-* **`id_funcionario`** `INT NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**
-* **`solicitada_em`** `DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP`
-* **`prevista_entrega`** `DATE NULL`
-* **`status`** `VARCHAR(20) NOT NULL DEFAULT 'SOLICITADA'` — Ex: `SOLICITADA`, `APROVADA`, `RECEBIDA`, `CANCELADA`.
-* **`valor_total`** `DECIMAL(10,2) NOT NULL DEFAULT 0.00`
-
-#### **`ITEM_COMPRA`**
-* **`id_item_compra`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_compra`** `INT NOT NULL` **[FK -> COMPRA.id_compra]**
-* **`id_produto`** `INT NOT NULL` **[FK -> PRODUTO.id_produto]**
-* **`quantidade_pedida`** `DECIMAL(10,3) NOT NULL`
-* **`quantidade_recebida`** `DECIMAL(10,3) NOT NULL DEFAULT 0.000`
-* **`custo_unitario`** `DECIMAL(10,2) NOT NULL`
+### 3.2 Requisitos Não Funcionais
+- **RNF01 (Desempenho):** As consultas de saldo e inclusão de itens na comanda devem ser processadas em tempo inferior a 2 segundos na rede local do estabelecimento.
+- **RNF02 (Usabilidade):** A interface de registro de pedidos deve ser otimizada para navegação rápida em dispositivos touch (tablets/smartphones).
+- **RNF03 (Segurança e Restrição de Acesso):** O sistema deve implementar controle de acesso baseado em papéis (RBAC), restringindo funções críticas (como cancelamentos e relatórios financeiros) a gerentes.
+- **RNF04 (Disponibilidade):** O sistema deve operar de forma ininterrupta durante todo o horário de funcionamento do bar, com mecanismo de backup diário dos dados operacionais.
 
 ---
 
-### 1.5 Módulo: Financeiro, Caixa e Ocorrências
+## 4. Regras de Negócio
 
-#### **`PAGAMENTO`**
-* **`id_pagamento`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_comanda`** `INT NOT NULL` **[FK -> COMANDA.id_comanda]**
-* **`forma_pagamento`** `VARCHAR(30) NOT NULL` — Ex: `DINHEIRO`, `CARTAO_CREDITO`, `CARTAO_DEBITO`, `PIX`.
-* **`valor`** `DECIMAL(10,2) NOT NULL`
-* **`pago_em`** `DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP`
-* **`status`** `VARCHAR(20) NOT NULL DEFAULT 'CONCLUIDO'`
-* **`referencia_transacao`** `VARCHAR(100) NULL`
+- **Regras Operacionais:**
+  - **RO01 (Obrigatoriedade de Comanda):** Nenhum pedido pode ser lançado no sistema sem estar vinculado a uma comanda/mesa aberta.
+  - **RO02 (Disponibilidade de Estoque):** O sistema não deve permitir o lançamento de produtos cujo estoque atual seja zero, emitindo um alerta de insumo esgotado.
+  - **RO03 (Fechamento com Saldo Zerado):** Uma comanda só pode ser encerrada/liberada após a quitação total do valor acumulado dos seus pedidos.
+  - **RO04 (Autorização de Cancelamento):** A remoção de itens já enviados à produção exige autenticação prévia do perfil de Gerente e preenchimento de justificativa.
 
-#### **`CONTA_PAGAR`**
-* **`id_conta_pagar`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_fornecedor`** `INT NOT NULL` **[FK -> FORNECEDOR.id_fornecedor]**
-* **`id_compra`** `INT NULL` **[FK -> COMPRA.id_compra]**
-* **`documento_referencia`** `VARCHAR(50) NULL`
-* **`vencimento`** `DATE NOT NULL`
-* **`valor`** `DECIMAL(10,2) NOT NULL`
-* **`status`** `VARCHAR(20) NOT NULL DEFAULT 'PENDENTE'` — Ex: `PENDENTE`, `PAGO`, `ATRASADO`, `CANCELADO`.
-* **`pago_em`** `DATE NULL`
-
-#### **`FECHAMENTO_CAIXA`**
-* **`id_fechamento`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_funcionario`** `INT NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**
-* **`iniciado_em`** `DATETIME NOT NULL`
-* **`encerrado_em`** `DATETIME NOT NULL`
-* **`valor_sistema`** `DECIMAL(10,2) NOT NULL`
-* **`valor_conferido`** `DECIMAL(10,2) NOT NULL`
-* **`diferenca`** `DECIMAL(10,2) NOT NULL DEFAULT 0.00` — Calculado: `valor_conferido - valor_sistema`.
-* **`observacao`** `TEXT NULL`
-
-#### **`OCORRENCIA`**
-* **`id_ocorrencia`** `INT AUTO_INCREMENT` **[PK]**
-* **`id_comanda`** `INT NULL` **[FK -> COMANDA.id_comanda]**
-* **`id_funcionario`** `INT NOT NULL` **[FK -> FUNCIONARIO.id_funcionario]**
-* **`autorizado_por`** `INT NULL` **[FK -> FUNCIONARIO.id_funcionario]**
-* **`registrada_em`** `DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP`
-* **`descricao`** `TEXT NOT NULL`
-* **`providencia`** `TEXT NOT NULL`
-* **`cortesia_valor`** `DECIMAL(10,2) NULL DEFAULT 0.00`
+- **Restrições Organizacionais:**
+  - **RC01 (Conformidade Fiscal e Alcoólica):** Venda de bebidas alcoólicas é restrita a clientes maiores de 18 anos e deve seguir as alíquotas fiscais vigentes.
+  - **RC02 (Limite de Ocupação por Mesa):** A associação de comandas por mesa deve respeitar a capacidade máxima física cadastrada para o arranjo de mesas do salão.
 
 ---
 
-## 2. Tabela de Mapeamento de Relacionamentos e Cardinalidades
+## 5. Dicionário de Dados Conceitual (Preliminar)
 
-| Tabela de Origem | Chave Estrangeira (FK) | Tabela de Destino | Chave Primária (PK) | Cardinalidade Lógica | Regra de Integridade |
-|---|---|---|---|---|---|
-| `COMANDA` | `id_mesa` | `MESA` | `id_mesa` | $N : 1$ | Toda comanda pertence a uma mesa. |
-| `PEDIDO` | `id_comanda` | `COMANDA` | `id_comanda` | $N : 1$ | Uma comanda pode ter múltiplos pedidos. |
-| `PEDIDO` | `id_funcionario` | `FUNCIONARIO` | `id_funcionario` | $N : 1$ | Identifica o atendente que gerou o pedido. |
-| `ITEM_PEDIDO` | `id_pedido` | `PEDIDO` | `id_pedido` | $N : 1$ | Detalha os produtos do pedido. |
-| `ITEM_PEDIDO` | `id_produto` | `PRODUTO` | `id_produto` | $N : 1$ | Associa o item vendido ao produto cadastrado. |
-| `PRODUTO` | `id_categoria` | `CATEGORIA` | `id_categoria` | $N : 1$ | Associa produto a uma categoria. |
-| `PRODUTO` | `id_setor` | `SETOR` | `id_setor` | $N : 1$ | Define o setor responsável pelo preparo. |
-| `ESTOQUE` | `id_produto` | `PRODUTO` | `id_produto` | $1 : 1$ (UQ) | Cada produto possui um saldo de estoque único. |
-| `MOVIMENTACAO_ESTOQUE` | `id_estoque` | `ESTOQUE` | `id_estoque` | $N : 1$ | Histórico de alterações do saldo. |
-| `PAGAMENTO` | `id_comanda` | `COMANDA` | `id_comanda` | $N : 1$ | Permite pagamentos parciais por comanda. |
-| `COMPRA` | `id_fornecedor` | `FORNECEDOR` | `id_fornecedor` | $N : 1$ | Associa pedido de compra ao fornecedor. |
-| `ITEM_COMPRA` | `id_compra` | `COMPRA` | `id_compra` | $N : 1$ | Detalha os itens de uma compra. |
-| `CONTA_PAGAR` | `id_fornecedor` | `FORNECEDOR` | `id_fornecedor` | $N : 1$ | Associa obrigações a pagar ao fornecedor. |
-| `ESCALA_FUNCIONARIO` | `id_funcionario` | `FUNCIONARIO` | `id_funcionario` | $N : 1$ | Vincula os turnos ao colaborador. |
+### Entidade: MESA
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_mesa` | Identificador único da mesa no salão | Chave Primária. Numérico inteiro positivo. |
+| `numero_mesa` | Número de identificação visível da mesa | Obrigatório, Único. |
+| `capacidade` | Quantidade máxima de lugares | Obrigatório. Valor inteiro maior que 0. |
+| `status_mesa` | Situação da mesa (Livre, Ocupada, Reservada) | Obrigatório. Padrão: 'Livre'. |
 
-**Entrega final:** Relatório Técnico \+ Dicionário de Dados \+ Modelo Conceitual \+ Modelo Lógico \+ Script SQL \+ Massa de Dados \+ Repositório GitHub, seguidos da Apresentação Corporativa Final perante o professor e a turma.
+### Entidade: COMANDA
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_comanda` | Identificador único da comanda | Chave Primária. Numérico inteiro. |
+| `codigo_identificador` | Código impresso ou tag da comanda física | Obrigatório, Único. |
+| `data_hora_abertura` | Registra a data e hora em que a comanda foi aberta | Obrigatório. Preenchimento automático. |
+| `data_hora_fechamento` | Registra a data e hora do encerramento da comanda | Opcional (nulo enquanto aberta). |
+| `status_comanda` | Estado atual da comanda (Aberta, Fechada, Cancelada) | Obrigatório. Padrão: 'Aberta'. |
+
+### Entidade: FUNCIONARIO
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_funcionario` | Identificador único do funcionário | Chave Primária. Numérico inteiro. |
+| `nome` | Nome completo do funcionário | Obrigatório. Texto. |
+| `cargo` | Função exercida (Garçom, Barman, Cozinheiro, Gerente) | Obrigatório. |
+| `cpf` | Documento de identificação (exemplo fictício no sistema) | Único, Formato válido (exemplo fictício: 000.000.000-00). |
+
+### Entidade: PRODUTO
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_produto` | Identificador único do produto do cardápio | Chave Primária. Numérico inteiro. |
+| `nome_produto` | Nome do item alimentício ou bebida | Obrigatório, Único. |
+| `preco_venda` | Valor de venda praticado | Obrigatório. Valor decimal positivo (> 0.00). |
+| `quantidade_estoque` | Saldo atual disponível do item | Obrigatório. Numérico inteiro (RO02). |
+| `setor_preparo` | Local de produção do item (Cozinha, Bar, Dispensário) | Obrigatório. |
+
+### Entidade: PEDIDO
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_pedido` | Identificador único do lote do pedido | Chave Primária. Numérico inteiro. |
+| `data_hora_pedido` | Data e hora exata da solicitação | Obrigatório. Preenchimento automático. |
+| `status_pedido` | Fase do pedido (Pendente, Em Preparo, Entregue, Cancelado) | Obrigatório. Padrão: 'Pendente'. |
+
+### Entidade: ITEM_PEDIDO
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_item_pedido` | Identificador único da linha do item do pedido | Chave Primária. Numérico inteiro. |
+| `quantidade` | Número de unidades solicitadas do produto | Obrigatório. Inteiro maior que 0. |
+| `preco_unitario` | Preço praticado no momento da venda | Obrigatório. Histórico de valor. |
+| `observacao` | Especificações do cliente (ex.: "sem gelo", "bem passado") | Texto opcional. |
+
+### Entidade: PAGAMENTO
+| Atributo | Descrição | Regra de negócio associada |
+|----------|-----------|------------------------------|
+| `id_pagamento` | Identificador único do registro de pagamento | Chave Primária. Numérico inteiro. |
+| `valor_pago` | Quantia quitada na transação | Obrigatório. Decimal positivo. |
+| `forma_pagamento` | Meio utilizado (Dinheiro, Débito, Crédito, PIX) | Obrigatório. |
+| `data_hora_pagamento` | Instante da liquidação da transação | Obrigatório. |
+
+---
+
+## 6. Modelagem Conceitual
+
+- **Entidades reconhecidas:**
+  - **MESA:** Representa a estrutura física do salão utilizada pelos clientes.
+  - **COMANDA:** Controla a conta e o saldo acumulado de consumo de um cliente ou grupo.
+  - **FUNCIONARIO:** Registra quem abriu a comanda, anotou os pedidos ou efetuou o pagamento.
+  - **PRODUTO:** Representa o catálogo de itens comercializados pelo gastrobar e seu nível de estoque.
+  - **PEDIDO:** Agrupa uma solicitação feita em um determinado momento para a comanda.
+  - **ITEM_PEDIDO:** Entidade associativa que detalha os produtos específicos e suas quantidades em cada pedido.
+  - **PAGAMENTO:** Registra as transações financeiras de quitação da comanda.
+
+- **Atributos e classificações:**
+  - *MESA:* `id_mesa` (Identificador), `numero_mesa` (Simples/Monovalorado), `capacidade` (Simples), `status_mesa` (Simples).
+  - *COMANDA:* `id_comanda` (Identificador), `codigo_identificador` (Simples), `data_hora_abertura` (Simples), `data_hora_fechamento` (Simples/Opcional), `status_comanda` (Simples).
+  - *FUNCIONARIO:* `id_funcionario` (Identificador), `nome` (Simples), `cargo` (Simples), `cpf` (Simples).
+  - *PRODUTO:* `id_produto` (Identificador), `nome_produto` (Simples), `preco_venda` (Simples), `quantidade_estoque` (Simples), `setor_preparo` (Simples).
+  - *PEDIDO:* `id_pedido` (Identificador), `data_hora_pedido` (Simples), `status_pedido` (Simples).
+  - *ITEM_PEDIDO:* `id_item_pedido` (Identificador), `quantidade` (Simples), `preco_unitario` (Simples), `observacao` (Simples/Opcional).
+  - *PAGAMENTO:* `id_pagamento` (Identificador), `valor_pago` (Simples), `forma_pagamento` (Simples), `data_hora_pagamento` (Simples).
+
+- **Relacionamentos pertinentes:**
+  - **MESA e COMANDA (1:N):** Uma mesa pode ter várias comandas ao longo do tempo, mas uma comanda aberta está associada a no máximo uma mesa por vez.
+  - **FUNCIONARIO e PEDIDO (1:N):** Um funcionário (garçom) pode anotar vários pedidos; cada pedido é anotado por exatamente um funcionário.
+  - **COMANDA e PEDIDO (1:N):** Uma comanda pode conter múltiplos pedidos ao longo da noite; cada pedido pertence a apenas uma comanda.
+  - **PEDIDO e ITEM_PEDIDO (1:N):** Um pedido é composto por um ou mais itens de pedido; cada item pertence a apenas um pedido.
+  - **PRODUTO e ITEM_PEDIDO (1:N):** Um produto do cardápio pode constar em múltiplos itens de pedidos; cada item de pedido refere-se a apenas um produto.
+  - **COMANDA e PAGAMENTO (1:N):** Uma comanda pode ser quitada através de um ou mais pagamentos (ex.: conta dividida entre amigos); cada pagamento refere-se a apenas uma comanda.
+
+- **Restrições e políticas organizacionais aplicadas ao modelo:**
+  - O isolamento entre a entidade `PEDIDO` e a entidade `ITEM_PEDIDO` garante que o histórico de preços não seja alterado caso o preço de venda do `PRODUTO` no cardápio mude no futuro.
+
+---
+
+## 7. Diagrama Entidade-Relacionamento (DER)
+
+- **Imagem do Diagrama Conceitual:**
+  *(O arquivo contendo a imagem do DER conceitual está localizado em `./der
