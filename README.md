@@ -10,15 +10,6 @@ Yasmin Jimenez Negrão (49595407).
 
 ---
 
-## 1. Mapeamento Lógico (Esquema de Tabelas)
-
-Legendas:
-* **`[PK]`**: Chave Primária (*Primary Key*)
-* **`[FK -> TABELA.coluna]`**: Chave Estrangeira (*Foreign Key*)
-* **`[UQ]`**: Restrição de Unicidade (*Unique*)
-
----
-
 ### 1.1 Módulo: Atendimento e Salão
 
 #### **`MESA`**
