@@ -1,7 +1,12 @@
 # Modelo Lógico de Banco de Dados (MBD) — Alberic Gastrobar
 
 **Projeto Acadêmico — Banco de Dados**  
-**Integrantes:** Daniel Baptista dos Santos (48821756), Eloise Abreu Rodrigues (49482602), Fernando Simoes de Menezes (49617133), Nathaly Pereira (47287560), Yasmin Jimenez Negrão (49595407).
+**Integrantes:** 
+Daniel Baptista dos Santos (48821756)
+Eloise Abreu Rodrigues (49482602)
+Fernando Simoes de Menezes (49617133)
+Nathaly Pereira (47287560)
+Yasmin Jimenez Negrão (49595407).
 
 ---
 
