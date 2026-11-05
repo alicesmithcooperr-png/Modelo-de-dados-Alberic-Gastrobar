@@ -119,7 +119,7 @@
 | `id_funcionario` | Identificador único do funcionário | Chave Primária. Numérico inteiro. |
 | `nome` | Nome completo do funcionário | Obrigatório. Texto. |
 | `cargo` | Função exercida (Garçom, Barman, Cozinheiro, Gerente) | Obrigatório. |
-| `cpf` | Documento de identificação (exemplo fictício no sistema) | Único, Formato válido (exemplo fictício: 000.000.000-00). |
+| `cpf` | Documento de identificação (exemplo fictício no sistema) | Único, Formato válido (exemplo fictício: 546.837.883.09). |
 
 ### Entidade: PRODUTO
 | Atributo | Descrição | Regra de negócio associada |
