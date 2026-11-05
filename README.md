@@ -212,5 +212,3 @@ Trilha de auditoria das entradas, baixas e saídas do estoque.
 | `ESCALA_FUNCIONARIO` | `id_funcionario` | `FUNCIONARIO` | `id_funcionario` | $N : 1$ | Vincula os turnos ao colaborador. |
 
 **Entrega final:** Relatório Técnico \+ Dicionário de Dados \+ Modelo Conceitual \+ Modelo Lógico \+ Script SQL \+ Massa de Dados \+ Repositório GitHub, seguidos da Apresentação Corporativa Final perante o professor e a turma.
-
-&nbsp;
